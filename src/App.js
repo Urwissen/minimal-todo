@@ -9,38 +9,56 @@ function App() {
       description: "Bananen Kaufen",
       category: null,
       isFavorite: true,
+      isChecked: false,
     },
     {
       id: 2,
       description: "Steuer",
       category: "privat",
       isFavorite: false,
+      isChecked: false,
     },
     {
       id: 3,
       description: "Meeting 12.12.22",
       category: "business",
       isFavorite: false,
+      isChecked: false,
     },
   ])
 
   function check(id) {
+    setTodos((prevTodos) => {
+      return prevTodos.map(todo => (
+        id === todo.id ? {...todo, isFavorite: false, isChecked: !todo.isChecked} : {...todo}))
+    })
+    console.log("toggle-" + id) 
     console.log("Check-" + id)
   }
 
   function remove(id) {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => id !== todo.id)
+    })
+    console.log("toggle-" + id) 
     console.log("remove-" + id)  
   }
 
   function toggle(id) {
+    setTodos((prevTodos) => {
+      return prevTodos.map(todo => (
+        id === todo.id ? {...todo, isFavorite: !todo.isFavorite} : {...todo}))
+    })
     console.log("toggle-" + id) 
   }
+
+  console.log(todos)
 
   return (
     <div className="App">
       <div className="todos">
       <h2 className="title">mini.do</h2>
-        {todos.map((todo, index) => <Todo key={todo.id} id={todo.id} description={todo.description} category={"todo--" + todo.category} favorite={todo.isFavorite} functions={{check, remove, toggle}}/>)}
+        {todos.map((todo, index) => <Todo key={todo.id} id={todo.id} description={todo.description} category={"todo--" + todo.category} isFavorite={todo.isFavorite} isChecked={todo.isChecked} functions={{check, remove, toggle}}/>)}
       </div>
     </div>
   );

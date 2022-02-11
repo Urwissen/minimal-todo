@@ -1,14 +1,14 @@
 import React from 'react'
 
 const Todo = (props) => {
-    const {id, description, category, isFavorite, functions} = props
+    const {id, description, category, isFavorite, isChecked, functions} = props
     const {check, remove, toggle} = functions
     return (
-        <div onClick={() => check(id)} className={`todo ${category ? category : null}`}>
-            <div onClick={() => console.log("checked!")} className='check box'>
+        <div className={`todo ${category ? category : null} ${isChecked ? "isChecked" : null}`}>
+            <div onClick={() => check(id)} className='check box'>
                 ✔️
             </div>
-            <p className={"todo--title"}>{description}</p>
+            <p className={`todo--title ${isChecked ? "isChecked" : null}`}>{description}</p>
             <span onClick={() => toggle(id)} className='isFavorite'>{isFavorite ? "★" : "☆"}</span>
             <div onClick={() => remove(id)} className='remove box'>
                 X

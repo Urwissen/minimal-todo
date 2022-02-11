@@ -57,3 +57,7 @@
 .check:hover {
   background-color: lightgreen;
 }
+
+.isChecked {
+  opacity: 0.3;
+}
