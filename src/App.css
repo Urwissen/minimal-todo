@@ -19,6 +19,37 @@
   font-size: 1.8rem;
 }
 
+.todos form {
+  align-self: center;
+}
+
+.todos--input,
+.todos--btn {
+  font-size: 1.6rem;
+  margin-top: 2em;
+  padding: 1em;
+  border: none;
+}
+
+.todos--input {
+  border-bottom-left-radius: .5em;
+  border-top-left-radius: .5em;
+}
+
+.todos--btn {
+  border-bottom-right-radius: .5em;
+  border-top-right-radius: .5em;
+  background-color: rgb(90, 90, 90);
+  color: azure;
+  font-weight: bold;
+  transition: 200ms;
+}
+
+.todos--btn:hover {
+  background-color: azure;
+  color: black;
+}
+
 .todo {
   display: flex;
   justify-content: space-between;
